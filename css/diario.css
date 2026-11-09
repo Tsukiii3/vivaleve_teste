@@ -413,11 +413,14 @@
 /* Responsividade */
 @media screen and (max-width: 480px) {
     .diary-filters {
-        flex-direction: column;
+        flex-direction: row;
+        gap: var(--espacamento-sm);
     }
     
     .filter-btn {
-        width: 100%;
+        width: 44px;
+        height: 44px;
+        flex-shrink: 0;
     }
     
     .modal {
