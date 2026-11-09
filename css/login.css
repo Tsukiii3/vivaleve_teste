@@ -36,7 +36,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 10px 40px rgba(115, 245, 159, 0.3);
+    box-shadow: 0 10px 40px rgba(157, 193, 131, 0.3);
     animation: float 3s ease-in-out infinite;
 }
 
@@ -176,7 +176,7 @@
 
 .social-btn:hover {
     border-color: var(--verde-claro);
-    background: rgba(115, 245, 159, 0.05);
+    background: rgba(157, 193, 131, 0.05);
 }
 
 .social-btn i {

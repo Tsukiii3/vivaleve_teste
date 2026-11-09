@@ -53,12 +53,12 @@
 }
 
 .stat-icon.verde {
-    background: linear-gradient(135deg, rgba(115, 245, 159, 0.3), rgba(115, 245, 159, 0.1));
+    background: linear-gradient(135deg, rgba(157, 193, 131, 0.3), rgba(157, 193, 131, 0.1));
     color: var(--verde-escuro);
 }
 
 .stat-icon.lilas {
-    background: linear-gradient(135deg, rgba(243, 215, 255, 0.5), rgba(243, 215, 255, 0.2));
+    background: linear-gradient(135deg, rgba(230, 230, 250, 0.5), rgba(230, 230, 250, 0.2));
     color: var(--lilas-escuro);
 }
 
@@ -91,7 +91,7 @@
     padding: var(--espacamento-xl);
     margin-bottom: var(--espacamento-xl);
     text-align: center;
-    box-shadow: 0 4px 20px rgba(115, 245, 159, 0.3);
+    box-shadow: 0 4px 20px rgba(157, 193, 131, 0.3);
 }
 
 .streak-icon {

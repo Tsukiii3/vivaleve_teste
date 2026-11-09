@@ -129,7 +129,7 @@
 }
 
 .message.user .message-content {
-    background: linear-gradient(135deg, var(--lilas-claro), #e6c7f5);
+    background: linear-gradient(135deg, var(--lilas-claro), #D3D3F0);
     color: var(--texto-escuro);
     border-bottom-right-radius: var(--borda-radius-sm);
 }
@@ -204,7 +204,7 @@
 
 .suggestion-chip:hover {
     border-color: var(--verde-claro);
-    background: rgba(115, 245, 159, 0.1);
+    background: rgba(157, 193, 131, 0.1);
 }
 
 /* Input de Mensagem */
@@ -259,7 +259,7 @@
 
 /* Links Úteis no Chat */
 .chat-helpful-links {
-    background: rgba(115, 245, 159, 0.1);
+    background: rgba(157, 193, 131, 0.1);
     border-radius: var(--borda-radius-md);
     padding: var(--espacamento-md);
     margin-top: var(--espacamento-md);
@@ -292,7 +292,7 @@
 }
 
 .helpful-link:hover {
-    background: rgba(115, 245, 159, 0.2);
+    background: rgba(157, 193, 131, 0.2);
 }
 
 .helpful-link i {
@@ -303,7 +303,7 @@
 .chat-disclaimer {
     text-align: center;
     padding: var(--espacamento-md);
-    background: rgba(243, 215, 255, 0.2);
+    background: rgba(230, 230, 250, 0.2);
     border-radius: var(--borda-radius-md);
     margin-bottom: var(--espacamento-md);
 }

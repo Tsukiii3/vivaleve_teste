@@ -53,12 +53,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 10px 50px rgba(115, 245, 159, 0.4);
+    box-shadow: 0 10px 50px rgba(157, 193, 131, 0.4);
     transition: transform 4s ease-in-out;
 }
 
 .breathing-circle.inhale {
-    animation: breatheIn 4s ease-in-out forwards;
+    animation: breatheIn var(--fase-dur, 3s) ease-in-out forwards;
 }
 
 .breathing-circle.hold {
@@ -66,7 +66,7 @@
 }
 
 .breathing-circle.exhale {
-    animation: breatheOut 8s ease-in-out forwards;
+    animation: breatheOut var(--fase-dur, 5s) ease-in-out forwards;
 }
 
 @keyframes breatheIn {
@@ -111,7 +111,7 @@
 
 .progress-ring-progress {
     fill: transparent;
-    stroke: var(--branco);
+    stroke: var(--verde-escuro);
     stroke-width: 4;
     stroke-linecap: round;
     transform: rotate(-90deg);
@@ -153,7 +153,7 @@
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
-    box-shadow: 0 10px 30px rgba(115, 245, 159, 0.4);
+    box-shadow: 0 10px 30px rgba(157, 193, 131, 0.4);
 }
 
 .start-btn i {
@@ -228,7 +228,7 @@
 }
 
 .step-number.inhale {
-    background: linear-gradient(135deg, rgba(115, 245, 159, 0.3), rgba(115, 245, 159, 0.1));
+    background: linear-gradient(135deg, rgba(157, 193, 131, 0.3), rgba(157, 193, 131, 0.1));
     color: var(--verde-escuro);
 }
 
@@ -238,7 +238,7 @@
 }
 
 .step-number.exhale {
-    background: linear-gradient(135deg, rgba(243, 215, 255, 0.5), rgba(243, 215, 255, 0.2));
+    background: linear-gradient(135deg, rgba(230, 230, 250, 0.5), rgba(230, 230, 250, 0.2));
     color: var(--lilas-escuro);
 }
 
@@ -423,3 +423,6 @@
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.03); }
 }
+
+.instruction-label,
+.instruction-description { display: block; }

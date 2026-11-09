@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="Pluma - Plataforma de apoio emocional e bem-estar. Registre seu humor, escreva seu diário e pratique técnicas de respiração.">
-    <meta name="theme-color" content="#73f59f">
+    <meta name="theme-color" content="#9DC183">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     
@@ -108,14 +108,16 @@
         <section class="section">
             <h2 class="section-title">Acesso Rápido</h2>
             <div class="cards-grid">
-                <a href="humor.html" class="card">
-                    <div class="card-header">
-                        <div class="card-icon verde">
-                            <i class="fas fa-smile"></i>
+                <a href="humor.html" class="card card-humor" aria-label="Registrar humor">
+                    <div class="humor-badge" aria-hidden="true">😊</div>
+                    <div class="humor-body">
+                        <h3 class="card-title">Registrar Humor</h3>
+                        <p class="card-subtitle">Como você está se sentindo hoje?</p>
+                        <div class="humor-faces" aria-hidden="true">
+                            <span>😄</span><span>🙂</span><span>😐</span><span>😔</span><span>😢</span>
                         </div>
+                        <span class="humor-cta">Registrar agora <i class="fas fa-arrow-right"></i></span>
                     </div>
-                    <h3 class="card-title">Registrar Humor</h3>
-                    <p class="card-subtitle">Como você está hoje?</p>
                 </a>
                 
                 <a href="diario.html" class="card">
@@ -138,14 +140,16 @@
                     <p class="card-subtitle">Exercícios de relaxamento</p>
                 </a>
                 
-                <a href="chat.html" class="card">
+                <a href="chat.html" class="card card-wide">
                     <div class="card-header">
                         <div class="card-icon lilas">
                             <i class="fas fa-comments"></i>
                         </div>
                     </div>
-                    <h3 class="card-title">Conversar</h3>
-                    <p class="card-subtitle">Fale com a Pluma</p>
+                    <div>
+                        <h3 class="card-title">Conversar</h3>
+                        <p class="card-subtitle">Fale com a Pluma</p>
+                    </div>
                 </a>
             </div>
         </section>

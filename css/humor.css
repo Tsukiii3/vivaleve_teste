@@ -71,7 +71,7 @@
 
 .emotion-card.selected {
     border-color: var(--verde-claro);
-    background: linear-gradient(135deg, rgba(115, 245, 159, 0.1), rgba(243, 215, 255, 0.1));
+    background: linear-gradient(135deg, rgba(157, 193, 131, 0.1), rgba(230, 230, 250, 0.1));
 }
 
 .emotion-card.selected .emotion-icon {
@@ -137,12 +137,12 @@
 
 .upload-area:hover {
     border-color: var(--verde-claro);
-    background: rgba(115, 245, 159, 0.05);
+    background: rgba(157, 193, 131, 0.05);
 }
 
 .upload-area.dragover {
     border-color: var(--verde-claro);
-    background: rgba(115, 245, 159, 0.1);
+    background: rgba(157, 193, 131, 0.1);
 }
 
 .upload-area i {

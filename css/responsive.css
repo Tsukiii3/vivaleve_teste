@@ -326,8 +326,8 @@
 /* Dark Mode Media Query */
 @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-        --verde-claro: #4bc77a;
-        --lilas-claro: #9b59b6;
+        --verde-claro: #6F9A57;
+        --lilas-claro: #6E6EA8;
         --branco: #1a1a2e;
         --fundo-suave: #16213e;
         --texto-escuro: #f0f0f0;

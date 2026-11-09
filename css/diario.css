@@ -312,7 +312,7 @@
 
 .emotion-option.selected {
     border-color: var(--verde-claro);
-    background: linear-gradient(135deg, rgba(115, 245, 159, 0.2), rgba(243, 215, 255, 0.2));
+    background: linear-gradient(135deg, rgba(157, 193, 131, 0.2), rgba(230, 230, 250, 0.2));
 }
 
 /* Estado Vazio */
