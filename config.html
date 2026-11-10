@@ -44,7 +44,7 @@
         </div>
     </header>
 
-    <!-- Menu lateral -->
+    <!-- Menu lateral corrigido -->
     <div class="menu-overlay" id="menuOverlay"></div>
     <nav class="side-menu" id="sideMenu" aria-label="Navegação principal" aria-hidden="true">
         <div class="side-menu-header">
@@ -79,8 +79,31 @@
                 <span>Conversar</span>
             </a>
         </div>
-    </nav>
 
+        <!-- Rodapé do Menu Lateral perfeitamente encaixado -->
+        <div class="side-menu-footer">
+            <div class="user-profile-summary">
+                <div class="user-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="user-info">
+                    <span class="user-name" id="sideUserName">Usuário Pluma</span>
+                    <span class="user-status">Online</span>
+                </div>
+            </div>
+
+            <div class="side-footer-actions">
+                <a href="config.html" class="side-link">
+                    <i class="fas fa-cog"></i>
+                    <span>Configurações</span>
+                </a>
+                <button type="button" class="side-link logout-btn-side" onclick="localStorage.removeItem('pluma_logged_in'); localStorage.removeItem('pluma_user'); window.location.href='login.html';">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Sair</span>
+                </button>
+            </div>
+        </div>
+    </nav>
 
     <!-- Conteúdo Principal -->
     <main class="container">
@@ -239,142 +262,79 @@
                 Lembre-se: A Pluma é uma ferramenta de apoio e <strong>não substitui</strong> acompanhamento profissional.
             </p>
         </section>
-        <!-- Inserir dentro de <nav class="side-menu"> logo após a div .side-menu-links -->
-        <div class="side-menu-footer">
-            <div class="user-profile-summary">
-                <div class="user-avatar">
-                    <i class="fas fa-user-circle"></i>
-                </div>
-                <div class="user-info">
-                    <span class="user-name" id="sideUserName">Usuário Pluma</span>
-                    <span class="user-status">Online</span>
-                </div>
-            </div>
-
-            <div class="side-footer-actions">
-                <a href="config.html" class="side-link">
-                    <i class="fas fa-cog"></i>
-                    <span>Configurações</span>
-                </a>
-                <button type="button" class="side-link logout-btn-side" onclick="localStorage.removeItem('pluma_logged_in'); localStorage.removeItem('pluma_user'); window.location.href='login.html';">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>Sair</span>
-                </button>
-            </div>
-        </div>
     </main>
-
 
     <!-- Scripts -->
     <script src="js/app.js"></script>
     <script src="js/sons.js"></script>
     <script>
-        // Configurações da página
         document.addEventListener('DOMContentLoaded', function() {
             // Dark Mode Toggle
             const darkModeToggle = document.getElementById('darkModeToggle');
-            darkModeToggle.checked = document.documentElement.getAttribute('data-theme') === 'dark';
-            
-            darkModeToggle.addEventListener('change', function() {
-                const theme = this.checked ? 'dark' : 'light';
-                document.documentElement.setAttribute('data-theme', theme);
-                localStorage.setItem('pluma_theme', theme);
-            });
+            if (darkModeToggle) {
+                darkModeToggle.checked = document.documentElement.getAttribute('data-theme') === 'dark';
+                darkModeToggle.addEventListener('change', function() {
+                    const theme = this.checked ? 'dark' : 'light';
+                    document.documentElement.setAttribute('data-theme', theme);
+                    localStorage.setItem('pluma_theme', theme);
+                });
+            }
 
             // Notificações Toggle
             const notificationsToggle = document.getElementById('notificationsToggle');
-            notificationsToggle.checked = localStorage.getItem('pluma_notifications') !== 'false';
-            
-            notificationsToggle.addEventListener('change', function() {
-                localStorage.setItem('pluma_notifications', this.checked);
-            });
+            if (notificationsToggle) {
+                notificationsToggle.checked = localStorage.getItem('pluma_notifications') !== 'false';
+                notificationsToggle.addEventListener('change', function() {
+                    localStorage.setItem('pluma_notifications', this.checked);
+                });
+            }
 
-            // Sons Toggle
-            const soundsToggle = document.getElementById('soundsToggle');
-            soundsToggle.checked = localStorage.getItem('pluma_sounds') !== 'false';
-            
-            soundsToggle.addEventListener('change', function() {
-                localStorage.setItem('pluma_sounds', this.checked);
-            });
-
-            // Carregar email do usuário
+            // Carregar dados e email do usuário
             const user = JSON.parse(localStorage.getItem('pluma_user') || '{}');
             if (user.email) {
-                document.getElementById('userEmail').textContent = user.email;
+                const userEmailEl = document.getElementById('userEmail');
+                if (userEmailEl) userEmailEl.textContent = user.email;
+            }
+            if (user.name) {
+                const sideUserNameEl = document.getElementById('sideUserName');
+                if (sideUserNameEl) sideUserNameEl.textContent = user.name;
             }
 
             // Exportar dados
-            document.getElementById('exportData').addEventListener('click', function(e) {
-                e.preventDefault();
-                const data = {
-                    moods: JSON.parse(localStorage.getItem('pluma_moods') || '[]'),
-                    diary: JSON.parse(localStorage.getItem('pluma_diary') || '[]'),
-                    breathing: JSON.parse(localStorage.getItem('pluma_breathing') || '{}')
-                };
-                
-                const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = 'pluma_dados_' + new Date().toISOString().split('T')[0] + '.json';
-                a.click();
-                URL.revokeObjectURL(url);
-                
-                alert('Dados exportados com sucesso!');
-            });
+            const exportDataBtn = document.getElementById('exportData');
+            if (exportDataBtn) {
+                exportDataBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const data = {
+                        moods: JSON.parse(localStorage.getItem('pluma_moods') || '[]'),
+                        diary: JSON.parse(localStorage.getItem('pluma_diary') || '[]'),
+                        breathing: JSON.parse(localStorage.getItem('pluma_breathing') || '{}')
+                    };
+                    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'pluma_dados_' + new Date().toISOString().split('T')[0] + '.json';
+                    a.click();
+                    URL.revokeObjectURL(url);
+                    alert('Dados exportados com sucesso!');
+                });
+            }
 
             // Limpar dados
-            document.getElementById('clearData').addEventListener('click', function(e) {
-                e.preventDefault();
-                if (confirm('Tem certeza que deseja apagar todos os seus dados? Esta ação não pode ser desfeita.')) {
-                    localStorage.removeItem('pluma_moods');
-                    localStorage.removeItem('pluma_diary');
-                    localStorage.removeItem('pluma_breathing');
-                    alert('Dados apagados com sucesso!');
-                    location.reload();
-                }
-            });
-
-            // Logout da conta
-            document.getElementById('logoutBtn').addEventListener('click', function() {
-                if (confirm('Deseja realmente sair?')) {
-                    // Limpa a sessão de login
-                    localStorage.removeItem('pluma_logged_in');
-                    localStorage.removeItem('pluma_user');
-                    
-                    // Redireciona imediatamente para a tela de login
-                    window.location.href = 'login.html';
-                }
-            });
-
-            // Feedback
-            document.getElementById('feedback').addEventListener('click', function(e) {
-                e.preventDefault();
-                alert('Obrigado pelo interesse! Em breve disponibilizaremos um formulário de feedback.');
-            });
-
-            // Central de Ajuda
-            document.getElementById('helpCenter').addEventListener('click', function(e) {
-                e.preventDefault();
-                alert('Central de Ajuda em desenvolvimento. Por enquanto, use o Chat de Apoio!');
-            });
-
-            // Editar Perfil
-            document.getElementById('editProfile').addEventListener('click', function(e) {
-                e.preventDefault();
-                const newName = prompt('Digite seu nome:', user.name || '');
-                if (newName !== null) {
-                    user.name = newName;
-                    localStorage.setItem('pluma_user', JSON.stringify(user));
-                    alert('Perfil atualizado!');
-                }
-            });
-
-            // Alterar Senha
-            document.getElementById('changePassword').addEventListener('click', function(e) {
-                e.preventDefault();
-                alert('Funcionalidade de alteração de senha em desenvolvimento.');
-            });
+            const clearDataBtn = document.getElementById('clearData');
+            if (clearDataBtn) {
+                clearDataBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    if (confirm('Tem certeza que deseja apagar todos os seus dados? Esta ação não pode ser desfeita.')) {
+                        localStorage.removeItem('pluma_moods');
+                        localStorage.removeItem('pluma_diary');
+                        localStorage.removeItem('pluma_breathing');
+                        alert('Dados apagados com sucesso!');
+                        location.reload();
+                    }
+                });
+            }
         });
     </script>
 </body>
