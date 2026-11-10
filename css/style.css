@@ -1276,3 +1276,70 @@ a.card { text-decoration: none; color: inherit; }
     align-items: center;
     justify-content: center;
 }
+/* Rodapé do Menu Lateral */
+.side-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.side-menu-links {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.side-menu-footer {
+    padding: var(--espacamento-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacamento-md);
+    margin-top: auto;
+}
+
+.user-profile-summary {
+    display: flex;
+    align-items: center;
+    gap: var(--espacamento-sm);
+    padding: var(--espacamento-xs) 0;
+}
+
+.user-avatar i {
+    font-size: 2rem;
+    color: var(--verde-claro);
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--texto-escuro);
+}
+
+.user-status {
+    font-size: 0.75rem;
+    color: var(--cinza-medio);
+}
+
+.side-footer-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacamento-xs);
+}
+
+.logout-btn-side {
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #e74c3c !important;
+    text-align: left;
+    font-family: inherit;
+}
+
+.logout-btn-side:hover {
+    background: rgba(231, 76, 60, 0.1) !important;
+}
