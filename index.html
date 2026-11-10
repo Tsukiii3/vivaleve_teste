@@ -93,6 +93,31 @@
                 <span>Conversar</span>
             </a>
         </div>
+
+        <!-- Perfil e ações do usuário no rodapé da sidebar -->
+        <div class="side-menu-footer">
+            <div class="user-profile-summary">
+                <div class="user-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="user-info">
+                    <span class="user-name" id="sideUserName">Usuário Pluma</span>
+                    <span class="user-status">Online</span>
+                </div>
+            </div>
+
+            <div class="side-footer-actions">
+                <a href="config.html" class="side-link">
+                    <i class="fas fa-cog"></i>
+                    <span>Configurações</span>
+                </a>
+                <button type="button" class="side-link logout-btn-side"
+                    onclick="localStorage.removeItem('pluma_logged_in'); localStorage.removeItem('pluma_user'); window.location.href='login.html';">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Sair</span>
+                </button>
+            </div>
+        </div>
     </nav>
 
 
