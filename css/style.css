@@ -1257,3 +1257,22 @@ a.card { text-decoration: none; color: inherit; }
 @media (prefers-reduced-motion: reduce) {
     .som-eq i, .icon-btn.tocando::after { animation: none; }
 }
+
+/* Estilização dos ícones do Font Awesome nas badges */
+.mini-badge i,
+.humor-badge i,
+.humor-faces span i {
+    color: var(--verde-escuro);
+    font-size: 1.1rem;
+}
+
+.humor-badge i {
+    font-size: 2.2rem;
+    color: #1f3527;
+}
+
+.humor-faces span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
