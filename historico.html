@@ -94,6 +94,25 @@
             <h2>Seu Histórico</h2>
             <p>Acompanhe sua jornada emocional</p>
         </section>
+        <div class="user-info">
+                    <span class="user-name">Usuário Pluma</span>
+                    <span class="user-status">Conta conectada</span>
+                </div>
+            </div>
+
+            <div class="side-footer-actions">
+                <a href="config.html" class="side-link">
+                    <i class="fas fa-cog"></i>
+                    <span>Configurações</span>
+                </a>
+
+                <button type="button" class="side-link logout-btn-side"
+                    onclick="localStorage.removeItem('pluma_logged_in'); localStorage.removeItem('pluma_user'); window.location.href='login.html';">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Sair</span>
+                </button>
+            </div>
+        </div>
 
         <!-- Cards de Estatísticas -->
         <section class="stats-grid slide-up">
