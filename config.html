@@ -226,7 +226,7 @@
 
         <!-- Logout -->
         <section class="section">
-            <button class="btn btn-outline btn-block" id="logoutBtn" style="border-color: #e74c3c; color: #e74c3c;">
+            <button class="btn btn-outline btn-block" id="logoutBtn" onclick="localStorage.removeItem('pluma_logged_in'); localStorage.removeItem('pluma_user'); window.location.href='login.html';" style="border-color: #e74c3c; color: #e74c3c;">
                 <i class="fas fa-sign-out-alt"></i>
                 Sair da Conta
             </button>
