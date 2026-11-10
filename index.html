@@ -9,6 +9,12 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     
     <title>Pluma - Apoio Emocional</title>
+    <script>
+    // Se não estiver logado, redireciona para a tela de login ao abrir o index.html
+    if (localStorage.getItem('pluma_logged_in') !== 'true') {
+        window.location.href = 'login.html';
+    }
+</script>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
