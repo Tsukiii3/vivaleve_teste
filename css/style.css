@@ -462,56 +462,70 @@ body {
     margin-top: var(--espacamento-sm);
 }
 
-/* Links Úteis */
+/* Links Úteis / Cards em Grade */
 .useful-links {
-    display: flex;
-    flex-direction: column;
-    gap: var(--espacamento-sm);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--espacamento-md);
 }
 
 .useful-link {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     gap: var(--espacamento-md);
-    padding: var(--espacamento-md);
+    padding: var(--espacamento-lg);
     background: var(--branco);
-    border-radius: var(--borda-radius-md);
+    border-radius: var(--borda-radius-lg);
     text-decoration: none;
     color: var(--texto-escuro);
     transition: all var(--transicao-rapida);
-    box-shadow: 0 2px 10px var(--sombra);
+    box-shadow: 0 4px 15px var(--sombra);
+    border: 1px solid rgba(163, 193, 173, 0.25);
 }
 
 .useful-link:hover {
-    transform: translateX(5px);
-    box-shadow: 0 4px 15px var(--sombra);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px var(--sombra);
+    border-color: var(--verde-claro);
 }
 
 .useful-link i {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--borda-radius-md);
     display: flex;
     align-items: center;
     justify-content: center;
     background: var(--verde-claro);
     color: var(--branco);
+    font-size: 1.25rem;
+    box-shadow: 0 4px 10px rgba(157, 193, 131, 0.3);
 }
 
 .useful-link-content {
-    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacamento-xs);
 }
 
 .useful-link-title {
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 1rem;
 }
 
 .useful-link-description {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: var(--cinza-medio);
+    line-height: 1.4;
 }
 
+/* Responsividade para telas menores (celular) */
+@media screen and (max-width: 480px) {
+    .useful-links {
+        grid-template-columns: 1fr;
+    }
+}
 /* Disclaimer */
 .disclaimer {
     background: rgba(230, 230, 250, 0.2);
