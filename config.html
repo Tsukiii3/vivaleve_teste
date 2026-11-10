@@ -312,11 +312,14 @@
                 }
             });
 
-            // Logout
+            // Logout da conta
             document.getElementById('logoutBtn').addEventListener('click', function() {
                 if (confirm('Deseja realmente sair?')) {
-                    localStorage.removeItem('pluma_user');
+                    // Limpa a sessão de login
                     localStorage.removeItem('pluma_logged_in');
+                    localStorage.removeItem('pluma_user');
+                    
+                    // Redireciona imediatamente para a tela de login
                     window.location.href = 'login.html';
                 }
             });
