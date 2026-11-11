@@ -46,25 +46,6 @@
     </header>
 
     <!-- Menu lateral -->
-     <div class="user-info">
-                    <span class="user-name">Usuário Pluma</span>
-                    <span class="user-status">Conta conectada</span>
-                </div>
-            </div>
-
-            <div class="side-footer-actions">
-                <a href="config.html" class="side-link">
-                    <i class="fas fa-cog"></i>
-                    <span>Configurações</span>
-                </a>
-
-                <button type="button" class="side-link logout-btn-side"
-                    onclick="localStorage.removeItem('pluma_logged_in'); localStorage.removeItem('pluma_user'); window.location.href='login.html';">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>Sair</span>
-                </button>
-            </div>
-        </div>
     <div class="menu-overlay" id="menuOverlay"></div>
     <nav class="side-menu" id="sideMenu" aria-label="Navegação principal" aria-hidden="true">
         <div class="side-menu-header">
@@ -73,6 +54,7 @@
                 <i class="fas fa-times"></i>
             </button>
         </div>
+
         <div class="side-menu-links">
             <a href="index.html" class="side-link">
                 <i class="fas fa-home"></i>
@@ -99,11 +81,34 @@
                 <span>Conversar</span>
             </a>
         </div>
+
+        <!-- Rodapé do menu -->
+        <div class="side-menu-footer">
+            <div class="user-profile-summary">
+                <div class="user-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="user-info">
+                    <span class="user-name" id="sideUserName">Usuário Pluma</span>
+                    <span class="user-status">Online</span>
+                </div>
+            </div>
+
+            <div class="side-footer-actions">
+                <a href="config.html" class="side-link">
+                    <i class="fas fa-cog"></i>
+                    <span>Configurações</span>
+                </a>
+                <button type="button" class="side-link logout-btn-side"
+                    onclick="localStorage.removeItem('pluma_logged_in'); localStorage.removeItem('pluma_user'); window.location.href='login.html';">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Sair</span>
+                </button>
+            </div>
+        </div>
     </nav>
-    <script src="js/sidebar-user.js"></script>
 
-
-    <!-- Conteúdo Principal -->
+<!-- Conteúdo Principal -->
     <main class="container">
         <div class="breathing-container">
             <!-- Header -->
@@ -237,8 +242,17 @@
         </div>
     </main>
 
-
     <!-- Scripts -->
+    <script>
+        // Nome do usuário no rodapé do menu
+        document.addEventListener('DOMContentLoaded', function () {
+            try {
+                var user = JSON.parse(localStorage.getItem('pluma_user') || '{}');
+                var el = document.getElementById('sideUserName');
+                if (el && user.name) el.textContent = user.name;
+            } catch (e) {}
+        });
+    </script>
     <script src="js/app.js"></script>
     <script src="js/sons.js"></script>
     <script src="js/respirar.js"></script>

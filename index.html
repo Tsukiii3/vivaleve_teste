@@ -260,5 +260,15 @@
     <!-- Scripts -->
     <script src="js/app.js"></script>
     <script src="js/sons.js"></script>
+    <script>
+        // Nome do usuário no rodapé do menu
+        document.addEventListener('DOMContentLoaded', function () {
+            try {
+                var user = JSON.parse(localStorage.getItem('pluma_user') || '{}');
+                var el = document.getElementById('sideUserName');
+                if (el && user.name) el.textContent = user.name;
+            } catch (e) {}
+        });
+    </script>
 </body>
 </html>

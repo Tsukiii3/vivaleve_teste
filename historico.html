@@ -57,6 +57,7 @@
                 <i class="fas fa-times"></i>
             </button>
         </div>
+
         <div class="side-menu-links">
             <a href="index.html" class="side-link">
                 <i class="fas fa-home"></i>
@@ -83,20 +84,16 @@
                 <span>Conversar</span>
             </a>
         </div>
-    </nav>
 
-
-    <!-- Conteúdo Principal -->
-     <script src="js/sidebar-user.js"></script>
-    <main class="container">
-        <!-- Header do Histórico -->
-        <section class="history-header fade-in">
-            <h2>Seu Histórico</h2>
-            <p>Acompanhe sua jornada emocional</p>
-        </section>
-        <div class="user-info">
-                    <span class="user-name">Usuário Pluma</span>
-                    <span class="user-status">Conta conectada</span>
+        <!-- Rodapé do menu -->
+        <div class="side-menu-footer">
+            <div class="user-profile-summary">
+                <div class="user-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="user-info">
+                    <span class="user-name" id="sideUserName">Usuário Pluma</span>
+                    <span class="user-status">Online</span>
                 </div>
             </div>
 
@@ -105,7 +102,6 @@
                     <i class="fas fa-cog"></i>
                     <span>Configurações</span>
                 </a>
-
                 <button type="button" class="side-link logout-btn-side"
                     onclick="localStorage.removeItem('pluma_logged_in'); localStorage.removeItem('pluma_user'); window.location.href='login.html';">
                     <i class="fas fa-sign-out-alt"></i>
@@ -113,6 +109,15 @@
                 </button>
             </div>
         </div>
+    </nav>
+
+<!-- Conteúdo Principal -->
+<main class="container">
+        <!-- Header do Histórico -->
+        <section class="history-header fade-in">
+            <h2>Seu Histórico</h2>
+            <p>Acompanhe sua jornada emocional</p>
+        </section>
 
         <!-- Cards de Estatísticas -->
         <section class="stats-grid slide-up">
@@ -223,8 +228,17 @@
         </div>
     </main>
 
-
     <!-- Scripts -->
+    <script>
+        // Nome do usuário no rodapé do menu
+        document.addEventListener('DOMContentLoaded', function () {
+            try {
+                var user = JSON.parse(localStorage.getItem('pluma_user') || '{}');
+                var el = document.getElementById('sideUserName');
+                if (el && user.name) el.textContent = user.name;
+            } catch (e) {}
+        });
+    </script>
     <script src="js/app.js"></script>
     <script src="js/sons.js"></script>
     <script src="js/historico.js"></script>
